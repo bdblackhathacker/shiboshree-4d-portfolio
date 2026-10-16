@@ -1,6 +1,7 @@
 # Shiboshree Roy — 4D Interactive Portfolio
 
-React (Vite) + TypeScript + Tailwind + React Three Fiber + GSAP ScrollTrigger 4D portfolio.
+**v2.0.0** · React (Vite) + TypeScript + Tailwind + React Three Fiber + GSAP ScrollTrigger 4D portfolio.
+Release history: [CHANGELOG.md](./CHANGELOG.md)
 
 ## 4D architecture
 - **3D:** floating Ruby crystal (`RubyCrystal.tsx`), orbiting stack nodes (`OrbitNodes.tsx`), particle field, glowing Z-axis circuit (`CircuitPath.tsx`).
