@@ -1,7 +1,7 @@
 {
   "name": "shiboshree-4d-portfolio",
   "private": true,
-  "version": "3.1.0",
+  "version": "3.2.0",
   "type": "module",
   "description": "4D interactive developer portfolio for Shiboshree Roy — Senior Full-Stack / Ruby on Rails",
   "scripts": {
@@ -21,6 +21,7 @@
     "postprocessing": "^6.39.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "simple-icons": "^16.35.0",
     "three": "0.169.0"
   },
   "devDependencies": {

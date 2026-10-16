@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Star, GitFork, ArrowUpRight } from 'lucide-react'
 import { PROFILE } from '../data/portfolio'
 import SectionHeading from './SectionHeading'
+import SkillIcon, { hasIcon } from './SkillIcon'
 
 type Repo = {
   id: number
@@ -115,7 +116,11 @@ export default function GitHubStrip() {
                 </p>
                 <div className="mt-auto flex items-center justify-between gap-3 border-t border-line pt-4 font-mono2 text-[10px] text-muted">
                   <span className="flex min-w-0 items-center gap-1.5">
-                    <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: r.language ? LANG_COLORS[r.language] ?? '#8B949E' : '#8B949E' }} />
+                    {r.language && hasIcon(r.language) ? (
+                      <SkillIcon name={r.language} size={11} />
+                    ) : (
+                      <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: r.language ? LANG_COLORS[r.language] ?? '#8B949E' : '#8B949E' }} />
+                    )}
                     <span className="truncate">{r.language ?? 'Code'}</span>
                   </span>
                   <span className="flex shrink-0 items-center gap-3">

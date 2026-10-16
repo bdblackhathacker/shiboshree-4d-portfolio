@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Search } from 'lucide-react'
 import { SKILLS, type SkillCategory } from '../data/portfolio'
 import SectionHeading from './SectionHeading'
+import SkillIcon from './SkillIcon'
 
 const CATS: (SkillCategory | 'All')[] = ['All', 'Languages', 'Backend & Architecture', 'Frontend', 'Databases & DevOps']
 const COLORS: Record<string, string> = {
@@ -90,8 +91,10 @@ export default function Skills() {
                     style={isActive ? { borderColor: `${color}88`, background: `linear-gradient(180deg, ${color}14, rgba(255,255,255,0)), #0A0E15` } : undefined}
                   >
                     <div className="flex items-center justify-between gap-3">
-                      <span className="flex min-w-0 items-center gap-2">
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: color }} />
+                      <span className="flex min-w-0 items-center gap-2.5">
+                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-line bg-black/40">
+                          <SkillIcon name={s.name} size={15} />
+                        </span>
                         <span className="truncate font-display text-[14.5px] font-semibold tracking-tight text-ink">{s.name}</span>
                       </span>
                       <span className="font-mono2 text-[10px] text-muted">{s.level}%</span>
@@ -118,7 +121,12 @@ export default function Skills() {
             <p className="kicker">Node inspector</p>
             {detail ? (
               <div key={detail.name}>
-                <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink">{detail.name}</h3>
+                <div className="mt-3 flex items-center gap-3">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line bg-black/40">
+                    <SkillIcon name={detail.name} size={22} />
+                  </span>
+                  <h3 className="font-display text-2xl font-semibold tracking-tight text-ink">{detail.name}</h3>
+                </div>
                 <p className="mt-1 font-mono2 text-[10px] tracking-[0.2em]" style={{ color: COLORS[detail.cat] }}>
                   {detail.cat.toUpperCase()}
                 </p>

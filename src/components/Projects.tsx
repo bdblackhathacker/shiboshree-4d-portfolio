@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { LayoutGrid, Network, ExternalLink } from 'lucide-react'
 import { PROJECTS, type Project } from '../data/portfolio'
 import SectionHeading from './SectionHeading'
+import SkillIcon from './SkillIcon'
 
 function ArchSVG({ p }: { p: Project }) {
   return (
@@ -121,7 +122,8 @@ function TiltCard({ p, index }: { p: Project; index: number }) {
             ))}
             <li className="flex flex-wrap gap-1.5 pt-2">
               {p.stack.map((s) => (
-                <span key={s} className="chip rounded-md px-2 py-0.5 font-mono2 text-[9.5px] text-muted">
+                <span key={s} className="chip flex items-center gap-1.5 rounded-md px-2 py-0.5 font-mono2 text-[9.5px] text-muted">
+                  <SkillIcon name={s} size={11} />
                   {s}
                 </span>
               ))}

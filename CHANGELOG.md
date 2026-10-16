@@ -3,6 +3,23 @@
 All notable changes to this portfolio are documented here.
 Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning: [Semantic Versioning](https://semver.org/).
 
+## [3.2.0] — 2026-10-16
+
+### Added
+
+- **Real brand icons for every skill** — official logos with authentic brand colors (Simple Icons) now rendered across the skill matrix tiles, the node inspector, and project stack chips.
+  - Languages: Ruby, JavaScript, TypeScript, Python, PHP, C, C++, Java, Go, Rust
+  - Backend: Ruby on Rails, .NET, JWT, GraphQL (plus iconography for REST, MVC, Active Record, Devise, Microservices)
+  - Frontend: Hotwire, Turbo, Stimulus, React, Angular, Tailwind CSS, Bootstrap, Sass (plus HAML glyph)
+  - Data & DevOps: PostgreSQL, MySQL, SQLite, Redis, Sidekiq, Docker, Kubernetes, Render, Git, SonarQube, AWS
+- **GitHub repo cards** now show the real language icon instead of a plain colored dot; the dot remains as a graceful fallback for unmapped languages.
+- HTML, CSS, Shell, and Dockerfile logos included for repo language badges.
+
+### Notes
+
+- Near-black brand colors (Java, Rust, JWT, Render, Angular, AWS) are auto-lightened for contrast on the obsidian theme.
+- Icons are tree-shaken from `simple-icons` — ~26 KB gzip added for the full set.
+
 ## [3.1.0] — 2026-10-16
 
 The 8D upgrade — a full dimensional layer on top of the 4D core: post-processing, a rift in the WebGL scene, a pointer/scroll variable system driving the whole design, cursor atmosphere, telemetry, and a preloader.
