@@ -60,7 +60,7 @@ const CONTACT = {
   location: 'Dhaka, Bangladesh',
   github: 'github.com/ShiboshreeRoy',
   linkedin: 'linkedin.com/in/shiboshree-roy',
-  site: 'shiboshree-roydev.netlify.app'
+  site: 'shiboshreeroy.vercel.app'
 }
 
 function plainTextResume(): string {

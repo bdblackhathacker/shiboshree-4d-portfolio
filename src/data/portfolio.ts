@@ -10,7 +10,7 @@ export const PROFILE = {
     github: 'https://github.com/bdblackhathacker',
     githubUser: 'bdblackhathacker',
     linkedin: 'https://linkedin.com/in/shiboshree-roy',
-    portfolio: 'https://shiboshree-roydev.netlify.app'
+    portfolio: 'https://shiboshreeroy.vercel.app/'
   },
   summary:
     'Full-Stack Software Engineer experienced in building scalable, production-grade web applications using Ruby on Rails, PostgreSQL, Hotwire, Turbo, Stimulus.js, React, TypeScript, and ASP.NET. Expert in RESTful API design, authentication/authorization, database architecture, performance optimization, and Agile/Git-based workflows.'

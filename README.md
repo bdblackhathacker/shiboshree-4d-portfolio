@@ -1,5 +1,7 @@
 # Shiboshree Roy — 4D Interactive Portfolio
 
+**Live:** https://shiboshreeroy.vercel.app/
+
 **v3.2.0** · React (Vite) + TypeScript + Tailwind + React Three Fiber + GSAP ScrollTrigger 4D portfolio.
 Release history: [CHANGELOG.md](./CHANGELOG.md)
 
