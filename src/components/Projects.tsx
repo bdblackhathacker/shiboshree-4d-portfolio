@@ -55,14 +55,23 @@ function TiltCard({ p, index }: { p: Project; index: number }) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, delay: index * 0.07 }}
       onMouseMove={(e) => {
-        const r = e.currentTarget.getBoundingClientRect()
+        const el = e.currentTarget
+        const r = el.getBoundingClientRect()
         const px = (e.clientX - r.left) / r.width - 0.5
         const py = (e.clientY - r.top) / r.height - 0.5
+        el.style.setProperty('--mx', `${((px + 0.5) * 100).toFixed(1)}%`)
+        el.style.setProperty('--my', `${((py + 0.5) * 100).toFixed(1)}%`)
         setT({ rx: -py * 6, ry: px * 8 })
       }}
       onMouseLeave={() => setT({ rx: 0, ry: 0 })}
-      className="card card-shine flex flex-col rounded-2xl p-6 md:p-7"
-      style={{ transform: `perspective(1200px) rotateX(${t.rx}deg) rotateY(${t.ry}deg)`, borderTop: `2px solid ${p.accent}` }}
+      className="card holo flex flex-col rounded-2xl p-6 md:p-7"
+      style={
+        {
+          transform: `perspective(1200px) rotateX(${t.rx}deg) rotateY(${t.ry}deg)`,
+          borderTop: `2px solid ${p.accent}`,
+          '--holo': `${p.accent}24`
+        } as React.CSSProperties
+      }
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">

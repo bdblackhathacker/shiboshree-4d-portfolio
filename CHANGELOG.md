@@ -3,6 +3,28 @@
 All notable changes to this portfolio are documented here.
 Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning: [Semantic Versioning](https://semver.org/).
 
+## [3.1.0] — 2026-10-16
+
+The 8D upgrade — a full dimensional layer on top of the 4D core: post-processing, a rift in the WebGL scene, a pointer/scroll variable system driving the whole design, cursor atmosphere, telemetry, and a preloader.
+
+### Added
+
+- **Screen-space post-processing (ULTRA mode)** — lazy-loaded pipeline with cinematic bloom, vignette, and chromatic aberration that intensifies with scroll velocity. Ships as its own 17 KB gzip chunk, only fetched when render mode allows.
+- **Dimensional Rift (D8 · Field)** — eight gate rings strung along the camera's scroll path that ignite as the camera approaches, a scroll-hue-shifting wireframe hypersphere core, and a velocity-reactive streak field wrapping the scene.
+- **Pointer/scroll dimension system** — global CSS variables (`--mx/--my`, `--px/--py`, `--scroll`, `--vel`, `--hue`, `--tx/--ty`) fed by pointer, scroll, and device-orientation (gyro tilt on mobile). Every 8D surface reads from this single source of truth.
+- **Aurora field + holo floor** — pointer-parallax aurora blobs and a perspective holographic floor above the WebGL canvas, pure CSS-driven (zero JS per frame), ECO-aware.
+- **Cursor system** — ambient cursor aura + reactive tracking ring that scales on interactive targets, plus click ripples. Native cursor preserved; fine pointers only.
+- **8D Telemetry HUD** — live readout of all eight dimensions (X/Y pointer, Z depth, time-velocity, tilt, focus, hue, field/FPS). Toggle with the `8` key or the corner button. Keyboard-inert while typing.
+- **Scroll progress 8D** — spectrum-hued scroll rail synced to `--scroll`/`--hue`.
+- **Preloader** — boot sequence that resolves into the hero.
+- **Magnetic interactions** — hero CTAs gravitate toward the cursor and spring back; the portrait card tilts with cursor-tracked glare.
+- **Hero typography FX** — glitch + chromatic-aberration layers on the name, spotlight metrics band.
+- **Card holo sheen** — project cards carry a pointer-tracked radial highlight tinted with each project's accent color.
+
+### Fixed
+
+- **The WebGL canvas was invisible.** The app root's opaque background painted over the entire `-z-10` scene (classic negative z-index vs. parent background painting order), so the ruby crystal, orbital nodes, particle field, circuit path, and the new rift never actually rendered behind the UI. The root background was removed — the full 3D scene is now live under every section.
+
 ## [3.0.1] — 2026-10-16
 
 ### Fixed

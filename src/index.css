@@ -184,6 +184,22 @@ body {
   .glass, .glass-strong { backdrop-filter: blur(12px); }
 }
 
+/* ---------- 8D layer: card holo ---------- */
+
+.holo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background:
+    radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.08), transparent 65%),
+    radial-gradient(560px circle at var(--mx, 50%) var(--my, 50%), var(--holo, rgba(0, 229, 255, 0.07)), transparent 72%);
+}
+.holo:hover::after { opacity: 1; }
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -192,4 +208,131 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* ================= 8D DESIGN SYSTEM ================= */
+:root {
+  --mx: 0.5;
+  --my: 0.5;
+  --px: 0;
+  --py: 0;
+  --scroll: 0;
+  --vel: 0;
+  --hue: 190;
+  --tx: 0;
+  --ty: 0;
+  --glx: 50%;
+  --gly: 50%;
+}
+
+/* D6 · magnetic */
+.magnetic-8d { display: inline-block; will-change: transform; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* D5 · tilt */
+.tilt-wrap-8d { perspective: 1100px; }
+.tilt-8d { position: relative; transform-style: preserve-3d; will-change: transform; transition: transform 0.25s ease-out; }
+.tilt-8d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(420px circle at var(--glx) var(--gly), rgba(255, 255, 255, 0.14), transparent 60%);
+}
+.tilt-8d:hover::after { opacity: 1; }
+
+/* D6 · spotlight — viewport-mapped ambient light */
+.spotlight-8d { position: relative; }
+.spotlight-8d::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(480px circle at calc(var(--mx) * 100%) calc(var(--my) * 100%), rgba(0, 229, 255, 0.08), transparent 65%);
+}
+
+/* D7 · chromatic + glitch type */
+.chromatic-8d { text-shadow: -1.5px 0 rgba(255, 45, 85, 0.5), 1.5px 0 rgba(0, 229, 255, 0.5); }
+.glitch-8d { position: relative; }
+.glitch-8d::before,
+.glitch-8d::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.glitch-8d:hover::before { opacity: 0.75; color: #00e5ff; transform: translate(-4px, -2px); clip-path: inset(8% 0 58% 0); }
+.glitch-8d:hover::after { opacity: 0.75; color: #ff2a55; transform: translate(4px, 2px); clip-path: inset(62% 0 6% 0); }
+
+/* D1+D2+D7 · aurora field (above WebGL, below content) */
+.aurora-field-8d { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.aurora-8d { position: absolute; border-radius: 9999px; filter: blur(90px); mix-blend-mode: screen; will-change: transform, translate; }
+.aurora-a {
+  width: 56vmax; height: 56vmax; left: -16vmax; top: -18vmax;
+  background: radial-gradient(circle, rgba(225, 6, 0, 0.16), transparent 65%);
+  translate: calc(var(--px) * 46px) calc(var(--py) * 30px);
+  animation: aurora-drift-8d 16s ease-in-out infinite alternate;
+}
+.aurora-b {
+  width: 52vmax; height: 52vmax; right: -16vmax; top: 22%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.13), transparent 65%);
+  translate: calc(var(--px) * -58px) calc(var(--py) * -36px);
+  animation: aurora-drift-8d 20s ease-in-out infinite alternate-reverse;
+}
+.aurora-c {
+  width: 46vmax; height: 46vmax; left: 22%; bottom: -24vmax;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.14), transparent 65%);
+  translate: calc(var(--px) * 30px) calc(var(--py) * -24px);
+  animation: aurora-drift-8d 24s ease-in-out infinite alternate;
+}
+.aurora-field-8d.is-low .aurora-8d { animation: none; }
+@keyframes aurora-drift-8d {
+  from { transform: translate3d(-3%, -2%, 0) scale(1); }
+  to { transform: translate3d(3%, 3%, 0) scale(1.12); }
+}
+.holo-floor-8d {
+  position: absolute; left: -20%; right: -20%; bottom: -12%; height: 46%;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.1) 1px, transparent 1px);
+  background-size: 44px 44px;
+  transform: perspective(700px) rotateX(62deg) translateX(calc(var(--px) * -30px));
+  transform-origin: bottom;
+  -webkit-mask-image: linear-gradient(to top, black 30%, transparent 85%);
+  mask-image: linear-gradient(to top, black 30%, transparent 85%);
+  opacity: 0.5;
+}
+
+/* D3+D7 · spectrum progress */
+.progress-8d {
+  background: linear-gradient(90deg, #e10600, hsl(var(--hue), 100%, 62%), #00e5ff);
+  box-shadow: 0 0 12px hsl(var(--hue), 100%, 60%);
+}
+
+/* D6 · cursor focus */
+.cursor-aura-8d {
+  position: fixed; left: 0; top: 0; width: 340px; height: 340px; border-radius: 9999px;
+  pointer-events: none; z-index: 55; mix-blend-mode: screen;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.07), rgba(124, 58, 237, 0.05) 45%, transparent 70%);
+}
+.cursor-ring-8d {
+  position: fixed; left: 0; top: 0; width: 30px; height: 30px; border-radius: 9999px;
+  pointer-events: none; z-index: 55; border: 1px solid rgba(0, 229, 255, 0.55);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
+}
+@media (pointer: coarse) { .cursor-aura-8d, .cursor-ring-8d { display: none; } }
+.ripple-8d {
+  position: fixed; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 9999px;
+  border: 1px solid rgba(0, 229, 255, 0.7); pointer-events: none; z-index: 56;
+  animation: ripple-8d 0.65s ease-out forwards;
+}
+@keyframes ripple-8d { to { transform: scale(9); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-8d { animation: none; }
 }

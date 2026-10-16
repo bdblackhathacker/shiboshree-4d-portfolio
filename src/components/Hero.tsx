@@ -4,6 +4,7 @@ import { ArrowRight, FileText } from 'lucide-react'
 import { PROFILE } from '../data/portfolio'
 import { printResume } from '../utils/resume'
 import Terminal from './Terminal'
+import { Magnetic, Tilt } from './Magnetic'
 
 const METRICS: [string, string][] = [
   ['3+', 'Years shipping production'],
@@ -59,7 +60,7 @@ export default function Hero({ velocity }: { velocity: number }) {
               transition={{ duration: 0.75, delay: 0.08 }}
               className="font-display font-bold leading-[0.92] tracking-[-0.035em]"
             >
-              <span className="block text-[15.5vw] text-ink sm:text-7xl md:text-[5.4rem] xl:text-[6.6rem]">SHIBOSHREE</span>
+              <span data-text="SHIBOSHREE" className="glitch-8d chromatic-8d block text-[15.5vw] text-ink sm:text-7xl md:text-[5.4rem] xl:text-[6.6rem]">SHIBOSHREE</span>
               <span className="gradient-text block pb-1 text-[15.5vw] sm:text-7xl md:text-[5.4rem] xl:text-[6.6rem]">ROY</span>
             </motion.h1>
 
@@ -99,12 +100,16 @@ export default function Hero({ velocity }: { velocity: number }) {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="mt-8 flex flex-wrap items-center gap-3"
             >
-              <a href="#projects" className="btn-primary group px-6 py-3.5 font-display text-sm">
-                View Case Studies <ArrowRight size={15} className="transition group-hover:translate-x-1" />
-              </a>
-              <button onClick={printResume} className="btn-ghost px-6 py-3.5 font-display text-sm">
-                <FileText size={15} className="text-cyanx" /> Résumé → PDF
-              </button>
+              <Magnetic strength={0.28}>
+                <a href="#projects" className="btn-primary group px-6 py-3.5 font-display text-sm">
+                  View Case Studies <ArrowRight size={15} className="transition group-hover:translate-x-1" />
+                </a>
+              </Magnetic>
+              <Magnetic strength={0.28}>
+                <button onClick={printResume} className="btn-ghost px-6 py-3.5 font-display text-sm">
+                  <FileText size={15} className="text-cyanx" /> Résumé → PDF
+                </button>
+              </Magnetic>
             </motion.div>
 
             <motion.div
@@ -140,7 +145,7 @@ export default function Hero({ velocity }: { velocity: number }) {
             className="relative flex justify-center lg:justify-end"
           >
             <div className="w-full max-w-[430px]">
-              <div className="relative">
+              <Tilt max={8} className="relative">
                 <div className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-ruby/20 via-transparent to-cyanx/20 blur-2xl" aria-hidden />
                 <div className="card relative overflow-hidden rounded-2xl" style={{ borderTop: '2px solid #E10600' }}>
                   <div className="relative aspect-square">
@@ -159,7 +164,7 @@ export default function Hero({ velocity }: { velocity: number }) {
                     <span className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/50 to-transparent" aria-hidden />
                   </div>
                 </div>
-              </div>
+              </Tilt>
 
               <div className="relative z-10 -mt-6">
                 <Terminal />
@@ -179,7 +184,7 @@ export default function Hero({ velocity }: { velocity: number }) {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.66, duration: 0.6 }}
-          className="mt-14 grid grid-cols-2 divide-x divide-line border-y border-line md:grid-cols-4"
+          className="spotlight-8d mt-14 grid grid-cols-2 divide-x divide-line border-y border-line md:grid-cols-4"
         >
           {METRICS.map(([v, l], i) => (
             <div key={l} className={`px-5 py-6 ${i > 1 ? 'border-t border-line md:border-t-0' : ''}`}>

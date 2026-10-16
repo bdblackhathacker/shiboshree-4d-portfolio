@@ -13,10 +13,16 @@ import Footer from './components/Footer'
 import RecruiterDock from './components/RecruiterDock'
 import CommandPalette from './components/CommandPalette'
 import ToastHost from './components/Toast'
+import Preloader from './components/Preloader'
+import CursorSystem from './components/CursorSystem'
+import AuroraLayers from './components/AuroraLayers'
+import ScrollProgress8D from './components/ScrollProgress8D'
+import DimensionHUD from './components/DimensionHUD'
 import Experience from './three/Experience'
 import type { ViewMode } from './three/SceneReactor'
 import { gsap, ScrollTrigger } from './lib/gsap'
 import { usePerfMode } from './hooks/useDevicePerf'
+import { usePointer8D } from './hooks/usePointer8D'
 
 export default function App() {
   const progressRef = useRef(0)
@@ -24,6 +30,7 @@ export default function App() {
   const modeRef = useRef<ViewMode>('ui')
   const [velocity, setVelocity] = useState(0)
   const { lowPower, setManual } = usePerfMode()
+  usePointer8D()
 
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.09, smoothWheel: true })
@@ -67,14 +74,17 @@ export default function App() {
   }, [])
 
   return (
-    <div className="noise relative min-h-screen bg-obsidian text-slate-100">
+    <div className="noise relative min-h-screen text-slate-100">
       <a
         href="#hero"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-mono2 focus:text-xs focus:text-black"
       >
         Skip to content
       </a>
+      <Preloader />
+      <ScrollProgress8D />
       <Experience lowPower={lowPower} progressRef={progressRef} velocityRef={velocityRef} modeRef={modeRef} />
+      <AuroraLayers lowPower={lowPower} />
       <Navbar lowPower={lowPower} onTogglePower={() => setManual(lowPower ? false : true)} />
       <main className="relative z-10">
         <Hero velocity={velocity} />
@@ -85,7 +95,7 @@ export default function App() {
               <span className="absolute h-full w-full animate-ping rounded-full bg-cyanx opacity-50" />
               <span className="h-1.5 w-1.5 rounded-full bg-cyanx" />
             </span>
-            ENTERING THE 4TH DIMENSION — SCROLL DRIVES TIME
+            ENTERING THE 8TH DIMENSION — SCROLL DRIVES TIME · CURSOR DRIVES LIGHT
           </div>
         </div>
         <Timeline />
@@ -101,6 +111,8 @@ export default function App() {
       <RecruiterDock />
       <CommandPalette lowPower={lowPower} onTogglePower={() => setManual(lowPower ? false : true)} />
       <ToastHost />
+      <DimensionHUD lowPower={lowPower} />
+      <CursorSystem />
     </div>
   )
 }

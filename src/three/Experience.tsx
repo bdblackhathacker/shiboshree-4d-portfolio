@@ -1,13 +1,16 @@
-import { Suspense } from 'react'
+import { Suspense, lazy } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { AdaptiveDpr, Preload } from '@react-three/drei'
 import RubyCrystal from './RubyCrystal'
 import OrbitNodes from './OrbitNodes'
 import ParticleField from './ParticleField'
 import CircuitPath from './CircuitPath'
+import DimensionalRift from './DimensionalRift'
 import CameraRig from './CameraRig'
 import SceneReactor, { type ViewMode } from './SceneReactor'
 import { useEffect } from 'react'
+
+const PostFX = lazy(() => import('./PostFX'))
 
 export default function Experience({
   lowPower,
@@ -60,7 +63,13 @@ export default function Experience({
           <OrbitNodes lowPower={lowPower} />
           <ParticleField lowPower={lowPower} />
           <CircuitPath lowPower={lowPower} progressRef={progressRef} />
+          <DimensionalRift lowPower={lowPower} progressRef={progressRef} velocityRef={velocityRef} />
           <CameraRig progressRef={progressRef} velocityRef={velocityRef} />
+          {!lowPower && (
+            <Suspense fallback={null}>
+              <PostFX velocityRef={velocityRef} />
+            </Suspense>
+          )}
           {!lowPower && <AdaptiveDpr />}
           <Preload all />
         </Suspense>
