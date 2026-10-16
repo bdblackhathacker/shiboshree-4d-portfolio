@@ -8,7 +8,7 @@ export default function Education() {
     <section id="education" className="relative py-20 md:py-24">
       <div className="relative mx-auto max-w-[1280px] px-4 md:px-8">
         <SectionHeading
-          index="05"
+          index="06"
           kicker="Academic base & verified practice"
           title="Education &"
           accent="certifications"

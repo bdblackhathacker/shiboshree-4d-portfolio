@@ -27,7 +27,8 @@ export function usePerfMode() {
     const weakCpu = (navigator as unknown as { hardwareConcurrency?: number }).hardwareConcurrency
       ? (navigator as unknown as { hardwareConcurrency: number }).hardwareConcurrency <= 4
       : false
-    setLowPower(Boolean(isMobile || saveData || weakCpu))
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    setLowPower(Boolean(isMobile || saveData || weakCpu || reduceMotion))
   }, [isMobile, manual])
 
   return { lowPower, manual, setManual, isMobile }

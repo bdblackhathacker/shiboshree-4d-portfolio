@@ -7,7 +7,8 @@ export const PROFILE = {
   phone: '+880 1570252680',
   phoneHref: 'tel:+8801570252680',
   links: {
-    github: 'https://github.com/ShiboshreeRoy',
+    github: 'https://github.com/bdblackhathacker',
+    githubUser: 'bdblackhathacker',
     linkedin: 'https://linkedin.com/in/shiboshree-roy',
     portfolio: 'https://shiboshree-roydev.netlify.app'
   },

@@ -6,10 +6,13 @@ import TechMarquee from './components/TechMarquee'
 import Timeline from './components/Timeline'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
+import GitHubStrip from './components/GitHubStrip'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import RecruiterDock from './components/RecruiterDock'
+import CommandPalette from './components/CommandPalette'
+import ToastHost from './components/Toast'
 import Experience from './three/Experience'
 import type { ViewMode } from './three/SceneReactor'
 import { gsap, ScrollTrigger } from './lib/gsap'
@@ -65,6 +68,12 @@ export default function App() {
 
   return (
     <div className="noise relative min-h-screen bg-obsidian text-slate-100">
+      <a
+        href="#hero"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-mono2 focus:text-xs focus:text-black"
+      >
+        Skip to content
+      </a>
       <Experience lowPower={lowPower} progressRef={progressRef} velocityRef={velocityRef} modeRef={modeRef} />
       <Navbar lowPower={lowPower} onTogglePower={() => setManual(lowPower ? false : true)} />
       <main className="relative z-10">
@@ -82,6 +91,7 @@ export default function App() {
         <Timeline />
         <Skills />
         <Projects />
+        <GitHubStrip />
         <Education />
         <Contact />
       </main>
@@ -89,6 +99,8 @@ export default function App() {
         <Footer velocity={velocity} />
       </div>
       <RecruiterDock />
+      <CommandPalette lowPower={lowPower} onTogglePower={() => setManual(lowPower ? false : true)} />
+      <ToastHost />
     </div>
   )
 }

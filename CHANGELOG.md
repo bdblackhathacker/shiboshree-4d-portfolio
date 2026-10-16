@@ -3,6 +3,29 @@
 All notable changes to this portfolio are documented here.
 Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning: [Semantic Versioning](https://semver.org/).
 
+## [3.0.0] — 2026-10-16
+
+Version 3 — command palette, live GitHub feed, accessibility pass, and real working profile links.
+
+### Added
+
+- **Command palette (`⌘K` / `Ctrl+K`)** — keyboard-driven launcher for navigation (all 7 sections), copy email/phone, mail/call, résumé PDF & ATS text, GitHub/LinkedIn, and render-mode switching. Full keyboard support (`↑↓` navigate, `↵` run, `ESC` close) with highlighted active row and scroll-follow.
+- **`Toast` system** — lightweight event-driven notifications for clipboard actions and mode changes, with stacked auto-dismiss.
+- **Live GitHub section (`05`)** — fetches real repositories from the GitHub API (`sort=pushed`, top 6 by stars then recency) with language dots, stars, forks, and last-push age; shimmer skeleton while loading; the section self-hides if the API is unreachable.
+- **Navbar ⌘K button** — opens the palette from the header (desktop) and from the mobile menu.
+- **Skip-to-content link** — first focusable element for keyboard/screen-reader users.
+- **Live FPS meter** in the footer — real frames-per-second sampled via `requestAnimationFrame` (replaces the static "60FPS SAFE" label).
+
+### Changed
+
+- **GitHub links fixed to the real account** (`bdblackhathacker`) across profile data and JSON-LD `sameAs` — the previous `ShiboshreeRoy` handle returned 404.
+- Section numbering updated for the new GitHub station: Education `05 → 06`, Contact `06 → 07`.
+- Footer shows `4D CORE v3.0`.
+
+### Fixed
+
+- **`prefers-reduced-motion` is now honored** — the OS-level setting forces ECO render mode and a global stylesheet rule neutralizes CSS animations/transitions.
+
 ## [2.0.0] — 2026-10-16
 
 Version 2 — enterprise-grade redesign, recruiter tooling, and personal branding.

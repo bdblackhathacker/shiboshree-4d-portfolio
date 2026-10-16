@@ -1,7 +1,7 @@
 {
   "name": "shiboshree-4d-portfolio",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "module",
   "description": "4D interactive developer portfolio for Shiboshree Roy — Senior Full-Stack / Ruby on Rails",
   "scripts": {

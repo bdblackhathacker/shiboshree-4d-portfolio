@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
-import { Menu, X, Zap, FileText } from 'lucide-react'
+import { Menu, X, Zap, FileText, Search } from 'lucide-react'
 import { printResume } from '../utils/resume'
 
 const LINKS = [
@@ -50,6 +50,15 @@ export default function Navbar({ lowPower, onTogglePower }: { lowPower: boolean;
 
         <div className="flex items-center gap-2">
           <button
+            onClick={() => window.dispatchEvent(new Event('palette-open'))}
+            title="Command palette (Ctrl/⌘ + K)"
+            aria-label="Open command palette"
+            className="hidden items-center gap-2 rounded-lg border border-line px-3 py-2 font-mono2 text-[10px] tracking-[0.14em] text-muted transition hover:border-white/20 hover:text-ink md:flex"
+          >
+            <Search size={12} />
+            <span>⌘K</span>
+          </button>
+          <button
             onClick={onTogglePower}
             title={lowPower ? 'Switch to ULTRA 3D' : 'Switch to 60FPS ECO'}
             aria-label="Toggle performance mode"
@@ -85,6 +94,15 @@ export default function Navbar({ lowPower, onTogglePower }: { lowPower: boolean;
               ))}
               <button onClick={printResume} className="mt-1 flex items-center gap-2 rounded-lg border border-line px-3 py-2.5 font-mono2 text-[11px] text-ink">
                 <FileText size={13} /> RÉSUMÉ → PDF
+              </button>
+              <button
+                onClick={() => {
+                  setOpen(false)
+                  window.dispatchEvent(new Event('palette-open'))
+                }}
+                className="flex items-center gap-2 rounded-lg px-3 py-2.5 font-mono2 text-[11px] tracking-[0.14em] text-ink hover:bg-white/[0.05]"
+              >
+                <Search size={13} /> COMMAND PALETTE ⌘K
               </button>
               <button onClick={onTogglePower} className="rounded-lg border border-line px-3 py-2.5 text-left font-mono2 text-[11px] text-muted">
                 {lowPower ? 'Switch to ULTRA 3D' : 'Switch to 60FPS ECO'}

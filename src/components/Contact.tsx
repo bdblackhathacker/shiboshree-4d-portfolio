@@ -24,7 +24,7 @@ export default function Contact() {
       <div className="orb right-[4%] top-[44%] h-[320px] w-[320px] bg-cyanx/10" />
       <div className="relative mx-auto max-w-[1280px] px-4 md:px-8">
         <SectionHeading
-          index="06"
+          index="07"
           kicker="Contact portal · open channel"
           title="Initialize"
           accent="handshake"
