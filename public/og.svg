@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07090E"/>
+      <stop offset="1" stop-color="#04060A"/>
+    </linearGradient>
+    <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF2A2A"/>
+      <stop offset="0.55" stop-color="#CC0000"/>
+      <stop offset="1" stop-color="#00F0FF"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#CC0000" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#CC0000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="150" r="260" fill="url(#glow)"/>
+  <g stroke="#00F0FF" stroke-opacity="0.12">
+    <path d="M0 140h1200M0 300h1200M0 460h1200"/>
+    <path d="M140 0v630M420 0v630M700 0v630M980 0v630"/>
+  </g>
+  <g transform="translate(1000, 315)">
+    <path d="M0-120 92-38 0 120-92-38z" fill="#CC0000" opacity="0.9"/>
+    <path d="M0-120 92-38 0 120-92-38z" fill="none" stroke="#FF2A2A" stroke-width="3"/>
+    <path d="M-92-38H92M0-120 0 120" stroke="#7A0000" stroke-width="3"/>
+  </g>
+  <text x="90" y="180" font-family="Segoe UI, Arial, sans-serif" font-size="26" letter-spacing="10" fill="#00F0FF">4D PORTFOLIO // FULL-STACK CORE</text>
+  <text x="90" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="96" font-weight="700" fill="#FFFFFF">SHIBOSHREE</text>
+  <text x="90" y="430" font-family="Segoe UI, Arial, sans-serif" font-size="96" font-weight="700" fill="url(#ruby)">ROY</text>
+  <text x="90" y="500" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#A8B3C7">Full-Stack Software Engineer · Ruby on Rails Developer</text>
+  <text x="90" y="555" font-family="Consolas, monospace" font-size="24" fill="#E8C47A">Rails · PostgreSQL · Hotwire · React · TypeScript · Dhaka, BD</text>
+</svg>
