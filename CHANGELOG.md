@@ -3,6 +3,17 @@
 All notable changes to this portfolio are documented here.
 Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning: [Semantic Versioning](https://semver.org/).
 
+## [3.0.1] — 2026-10-16
+
+### Fixed
+
+- **Tech marquee loop seam** — the row carried its spacing as a flex `gap` (15 gaps for 16 spans), so the `translateX(-50%)` cycle was 20 px short of the true content period and visibly jumped on every restart. Spacing now lives inside each item, so the loop is mathematically seamless.
+- **Marquee first impression** — a leading spacer keeps `RUBY ON RAILS 7` fully clear of the left edge-fade mask at load and on every cycle restart (previously the opening characters sat in the fade, so the ticker could read as "N RAILS 7").
+
+### Changed
+
+- **Marquee pauses on hover** — every stack item can be read without chasing the ticker.
+
 ## [3.0.0] — 2026-10-16
 
 Version 3 — command palette, live GitHub feed, accessibility pass, and real working profile links.

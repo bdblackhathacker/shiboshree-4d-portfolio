@@ -1,6 +1,6 @@
 # Shiboshree Roy — 4D Interactive Portfolio
 
-**v3.0.0** · React (Vite) + TypeScript + Tailwind + React Three Fiber + GSAP ScrollTrigger 4D portfolio.
+**v3.0.1** · React (Vite) + TypeScript + Tailwind + React Three Fiber + GSAP ScrollTrigger 4D portfolio.
 Release history: [CHANGELOG.md](./CHANGELOG.md)
 
 ## 4D architecture
